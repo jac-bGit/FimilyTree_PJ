@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Pendulum
+  m_EditorClassIdentifier: Assembly-CSharp::Situation
+  m_sTag: Pendulum
+  m_sDesription: 'You''ve entered the tight tunnel with fast pendulum. There is only
+    one way through. '
+  m_GOIllustration: {fileID: 2335465356798840271, guid: 3dde392ff20ce7042b052825e74974fb,
+    type: 3}
+  m_iIsSolvedWith: -1
+  m_aOptions:
+  - m_sDescription: Rush through
+    m_sResultText: You rushed through as fast as possible. You've lucky to catch
+      the right moment. You've stopped pundulum with lever on the end of the tunnel.
+    m_sSolutionText: The passage through the tunnel is safe now.
+    m_bEndResult: 0
+    m_sTagNext: Wizard
+    m_SkillCheck:
+      m_iAbility: 3
+      m_iAbilityLevel: 2
+  - m_sDescription: Go through
+    m_sResultText: You tried you luck, but this wasn't you luckiest day. The pendulum
+      sliced you into pieces.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 0
+  - m_sDescription: Stop pendulum with force
+    m_sResultText: You tried to stop the pendulum with your bear hands.There is one
+      more piece of you now.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 1
+  - m_sDescription: Find stopping mechanism
+    m_sResultText: You are looking for some lever to stop the pendulum. There is
+      one on the other side, so you just risked it. The tunnel is now painted with
+      red.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 2
+      m_iAbilityLevel: 1

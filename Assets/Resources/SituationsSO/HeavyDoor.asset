@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: HeavyDoor
+  m_EditorClassIdentifier: Assembly-CSharp::Situation
+  m_sTag: HeavyDoor
+  m_sDesription: You've entered the crypt and first obstacle in you way is old heavy
+    gate. It should be no problem to get through this.
+  m_GOIllustration: {fileID: 2335465356798840271, guid: 4cdda83a7f98ac243aac6255865cfe32,
+    type: 3}
+  m_iIsSolvedWith: -1
+  m_aOptions:
+  - m_sDescription: Use force on mechanism
+    m_sResultText: The mechanism is bit stiff, but it was no problem for you to open
+      the gate.
+    m_sSolutionText: The gate is open so nothing is blocking your way.
+    m_bEndResult: 0
+    m_sTagNext: BlindMan
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 1
+  - m_sDescription: Repair mechanism
+    m_sResultText: You've repaired the mechanism. It's good as new and there is almost
+      no force required to open the gate.
+    m_sSolutionText: The gate is open so nothing is blocking your way.
+    m_bEndResult: 0
+    m_sTagNext: BlindMan
+    m_SkillCheck:
+      m_iAbility: 2
+      m_iAbilityLevel: 1
+  - m_sDescription: Get through hole
+    m_sResultText: 'You''ve tried to squeeze into the small hole in the gate. Unfortunately,
+      you''re stuck now and there is no one to help you. '
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 1
+      m_iAbilityLevel: 1
+  - m_sDescription: Knock on the gate
+    m_sResultText: No one is answering. You keep knocking on the gate till the end
+      of your days.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 0
+  - m_sDescription: Kick the mechanism
+    m_sResultText: You've broken your foot and you died.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 0

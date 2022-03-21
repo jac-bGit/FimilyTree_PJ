@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: BlindMan
+  m_EditorClassIdentifier: Assembly-CSharp::Situation
+  m_sTag: BlindMan
+  m_sDesription: You've carefully entered the next room and you've spotted blind
+    man walking around. It should be easy to walk past him without any trouble.
+  m_GOIllustration: {fileID: 2335465356798840271, guid: 49c4551b486e1d44d877bae825af424a,
+    type: 3}
+  m_iIsSolvedWith: -1
+  m_aOptions:
+  - m_sDescription: Sneak past him
+    m_sResultText: You've sneaked past him without any problem.
+    m_sSolutionText: Since nothing is going on around here, the blind man just sits
+      and don't even care about you anymore. Just walk past him.
+    m_bEndResult: 0
+    m_sTagNext: Pendulum
+    m_SkillCheck:
+      m_iAbility: 1
+      m_iAbilityLevel: 1
+  - m_sDescription: Trick him
+    m_sResultText: You've convinced the man that you're here to guard this room.
+      Blind man happily walked away to get some rest.
+    m_sSolutionText: There is just empty room. No one and nothing is standing in
+      you way.
+    m_bEndResult: 0
+    m_sTagNext: Pendulum
+    m_SkillCheck:
+      m_iAbility: 4
+      m_iAbilityLevel: 1
+  - m_sDescription: Attack him
+    m_sResultText: You were preparing for dealy strike and that moment you felt your
+      neck being snaped.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 1
+  - m_sDescription: Run past him
+    m_sResultText: Just one loud step. The blind man reacted immediately. You speeded
+      up, but couldn't out run the man.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 3
+      m_iAbilityLevel: 1
+  - m_sDescription: Walk past him
+    m_sResultText: Just one loud step was enough to get the man attention. He looked
+      your direction. It was so sudden. There was nothing you could do.
+    m_sSolutionText: 
+    m_bEndResult: 1
+    m_sTagNext: 
+    m_SkillCheck:
+      m_iAbility: 0
+      m_iAbilityLevel: 0
