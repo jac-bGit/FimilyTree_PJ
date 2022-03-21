@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System;
+
 public class SituationManagerBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject m_GOButton;
@@ -52,12 +54,15 @@ public class SituationManagerBehavior : MonoBehaviour
     //------------------------------------------------------------------
     void GenerateOptions()
     {
-        m_bIsSolved = (m_SituationCurrent.m_iIsSolvedWith != -1);
+        m_bIsSolved = (
+            m_SituationCurrent.m_iIsSolvedWith != -1 || m_SituationCurrent.m_bJustContinue
+            );
+
         m_bIsDead = false;
         m_sTagNextSituation = "";
         int counting = 0; 
 
-        Debug.Log("generate");
+        Debug.Log("Generate: " + m_SituationCurrent.m_sTag + " - solved: " + m_bIsSolved);
 
         // Add illustration 
         AddIllustration();
@@ -65,8 +70,21 @@ public class SituationManagerBehavior : MonoBehaviour
         // Passing solved 
         if(m_bIsSolved)
         {
-            Option solution = m_SituationCurrent.m_aOptions[m_SituationCurrent.m_iIsSolvedWith];
-            m_sTagNextSituation = solution.m_sTagNext;
+            // Check solution validity
+            int solutionId = m_SituationCurrent.m_iIsSolvedWith;
+            int optionsCount = m_SituationCurrent.m_aOptions.Length;
+
+            Debug.Log("solutionId: " + solutionId + ", solutionId: " + optionsCount);
+
+            if (solutionId >= optionsCount || solutionId == -1)
+            {
+                // Display first solution and mark as last solved 
+                solutionId = 0;
+            }
+                
+            Option solution = m_SituationCurrent.m_aOptions[solutionId];
+            SaveLastSolution(solution);
+
             m_ButtonNext.SetActive(true);
             Debug.Log("was solved");
             return;
@@ -132,15 +150,13 @@ public class SituationManagerBehavior : MonoBehaviour
         if(!option.m_bEndResult)
         {
             // Continue
-            //Debug.Log("option.m_sTagNext: " + option.m_sTagNext);
-            m_sLastSolvedTag = m_SituationCurrent.m_sTag;
-            m_sTagNextSituation = option.m_sTagNext;
+            SaveLastSolution(option);
 
-            for(int i = 0; i < m_SituationCurrent.m_aOptions.Length; i++)
-            {
-                if(m_SituationCurrent.m_aOptions[i] == option)
-                    m_SituationCurrent.m_iIsSolvedWith = i;
-            }
+            // Save solution id 
+            Option[] options = m_SituationCurrent.m_aOptions;
+            int solutionId = Array.IndexOf(options, option); 
+
+            m_SituationCurrent.m_iIsSolvedWith = solutionId;
         }
         else
         {
@@ -221,5 +237,17 @@ public class SituationManagerBehavior : MonoBehaviour
     public void ToLastSolvedSituation()
     {
         NextSituation(m_sLastSolvedTag);
+    }
+
+    //------------------------------------------------------------------
+    // Private API
+    //------------------------------------------------------------------
+
+    //------------------------------------------------------------------
+    // Set last solved situation id 
+    protected void SaveLastSolution(Option option)
+    {
+        m_sLastSolvedTag = m_SituationCurrent.m_sTag;
+        m_sTagNextSituation = option.m_sTagNext;
     }
 }

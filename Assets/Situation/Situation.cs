@@ -11,6 +11,7 @@ public class Situation : ScriptableObject
     [TextAreaAttribute(5, 20)]
     [SerializeField] public string m_sDesription;
     [SerializeField] public GameObject m_GOIllustration; 
+    [SerializeField] public bool m_bJustContinue = false;
     [SerializeField] public int m_iIsSolvedWith = -1;
     [SerializeField] public Option[] m_aOptions; 
     

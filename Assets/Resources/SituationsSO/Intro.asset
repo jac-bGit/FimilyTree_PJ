@@ -17,7 +17,7 @@ MonoBehaviour:
     see the enterance."
   m_GOIllustration: {fileID: 2335465356798840271, guid: 88571721736237f42993e2c3c52fe226,
     type: 3}
-  m_iIsSolvedWith: 0
+  m_iIsSolvedWith: -1
   m_aOptions:
   - m_sDescription: Go further
     m_sResultText: And so you've gathered courage and started the journey.
